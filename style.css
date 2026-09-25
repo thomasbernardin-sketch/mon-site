@@ -40,3 +40,10 @@ btnSombre.addEventListener('click', function() {
         transform: translateY(-40px) rotate(180deg); /* Monte et tourne */
     }
 }
+.spiderman-animation {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* On le met à gauche pour ne pas percuter le ballon */
+    width: 150px;
+    z-index: 1000;
+}
