@@ -1,49 +1,51 @@
-// On récupère le bouton grâce à son ID
-const btnSombre = document.getElementById('btn-sombre');
+/* --- COULEURS DU MODE SOMBRE --- */
+body.mode-sombre {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
 
-// On ajoute l'action au clic
-btnSombre.addEventListener('click', function() {
-    // On active ou désactive la classe 'mode-sombre' sur toute la page
-    document.body.classList.toggle('mode-sombre');
-    
-    // On change le texte du bouton selon l'état
-    if (document.body.classList.contains('mode-sombre')) {
-        btnSombre.textContent = 'Mode clair';
-    } else {
-        btnSombre.textContent = 'Mode sombre';
-    }
-});/* Taille et forme de l'image de profil */
+body.mode-sombre .header, 
+body.mode-sombre .footer {
+    background-color: #2c2c2c;
+    color: #f1f1f1;
+}
+
+body.mode-sombre .project-card {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #444;
+}
+
+/* --- TAILLE DE L'IMAGE DE PROFIL --- */
 .profile-img {
-    width: 100px;       /* Règle la largeur de l'image */
-    height: 100px;      /* Règle la hauteur de l'image */
-    object-fit: cover;  /* Évite que ton visage soit déformé ou écrasé */
-    border-radius: 50%; /* Astuce : rend l'image parfaitement ronde ! */
-    margin: 0 auto 20px auto; /* Centre l'image et met un espace en dessous */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
     display: block;
 }
+
 /* --- ANIMATION DU BALLON DE FOOT --- */
 .animation-foot {
-    font-size: 40px;          /* Taille du ballon */
-    position: fixed;          /* Reste à l'écran même quand on descend */
-    bottom: 20px;             /* Placé en bas */
-    right: 20px;              /* Placé à droite */
-    z-index: 1000;            /* Passe par-dessus les autres éléments */
-    animation: rebond 1.5s infinite ease-in-out; /* Lance l'animation en boucle */
+    font-size: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: rebond 1.5s infinite ease-in-out;
 }
 
-/* Le parcours de l'animation */
 @keyframes rebond {
-    0%, 100% { 
-        transform: translateY(0) rotate(0deg); 
-    }
-    50% { 
-        transform: translateY(-40px) rotate(180deg); /* Monte et tourne */
-    }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(180deg); }
 }
+
+/* --- SPIDERMAN --- */
 .spiderman-animation {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* On le met à gauche pour ne pas percuter le ballon */
+    left: 20px;
     width: 150px;
     z-index: 1000;
 }
