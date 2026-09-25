@@ -14,8 +14,8 @@ btnSombre.addEventListener('click', function() {
     }
 });/* Taille et forme de l'image de profil */
 .profile-img {
-    width: 150px;       /* Règle la largeur de l'image */
-    height: 150px;      /* Règle la hauteur de l'image */
+    width: 100px;       /* Règle la largeur de l'image */
+    height: 100px;      /* Règle la hauteur de l'image */
     object-fit: cover;  /* Évite que ton visage soit déformé ou écrasé */
     border-radius: 50%; /* Astuce : rend l'image parfaitement ronde ! */
     margin: 0 auto 20px auto; /* Centre l'image et met un espace en dessous */
