@@ -21,3 +21,22 @@ btnSombre.addEventListener('click', function() {
     margin: 0 auto 20px auto; /* Centre l'image et met un espace en dessous */
     display: block;
 }
+/* --- ANIMATION DU BALLON DE FOOT --- */
+.animation-foot {
+    font-size: 40px;          /* Taille du ballon */
+    position: fixed;          /* Reste à l'écran même quand on descend */
+    bottom: 20px;             /* Placé en bas */
+    right: 20px;              /* Placé à droite */
+    z-index: 1000;            /* Passe par-dessus les autres éléments */
+    animation: rebond 1.5s infinite ease-in-out; /* Lance l'animation en boucle */
+}
+
+/* Le parcours de l'animation */
+@keyframes rebond {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-40px) rotate(180deg); /* Monte et tourne */
+    }
+}
