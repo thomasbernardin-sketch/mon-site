@@ -3,103 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas Bernardin | Profil & Portfolio</title>
+    <title>Thomas Bernardin | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <button id="btn-sombre">Mode sombre</button>
-        <div class="profile-container">
-            <img src="IMG_3738.jpeg" alt="Portrait de Thomas Bernardin" class="profile-img">
-            <div>
+    <!-- Navigation fixée en haut -->
+    <nav class="navbar">
+        <div class="logo">TB.</div>
+        <div class="nav-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#parcours">Parcours</a>
+            <a href="#experiences">Expériences</a>
+            <button id="btn-sombre">🌙 Mode Sombre</button>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <header id="accueil" class="hero-section hidden">
+        <div class="hero-content">
+            <img src="IMG_3738.jpeg" alt="Thomas Bernardin" class="profile-img">
+            <div class="hero-text">
                 <h1>Thomas Bernardin</h1>
-                <p class="subtitle">L'exigence académique (SKEMA / ULCO), l'intelligence du terrain.</p>
-                <p class="bio">Mon parcours n'est pas une ligne droite, c'est une ascension bâtie sur l'adaptabilité[cite: 1]. De la rudesse d'un chantier de construction aux standards d'excellence du groupe Palm Beach, j'ai forgé un mental qui refuse la facilité[cite: 1, 2]. Qu'il s'agisse de partir seul deux mois à Malte pour m'immerger en anglais ou de gérer la pression d'un service premium, je m'engage à 100%[cite: 2]. Ma force ? Allier la rigueur d'un étudiant en double cursus à la force de travail d'un sportif de compétition.</p>
+                <h2 class="subtitle">Étudiant en Double Cursus (SKEMA / ULCO)</h2>
+                <p class="bio">
+                    Curieux et engagé, je construis mon parcours en combinant l'exigence académique avec des expériences concrètes. 
+                    J'ai eu l'opportunité de développer ma rigueur lors d'un stage financier au Palm Beach, mais aussi mon sens de l'effort 
+                    en travaillant sur des chantiers ou en encadrant des jeunes. Passionné par la géopolitique, l'histoire et le sport, 
+                    j'aime le travail d'équipe et relever de nouveaux défis.
+                </p>
             </div>
         </div>
     </header>
 
-    <main class="main-content">
-        <!-- Grille du tableau de bord interactif (Simple et ergonomique) -->
-        <div class="dashboard-grid">
-            <div class="dash-card active" data-target="experiences">Expériences</div>
-            <div class="dash-card" data-target="formation">Formation</div>
-            <div class="dash-card" data-target="competences">Compétences & Atouts</div>
-            <div class="dash-card" data-target="loisirs">Loisirs & Personnalité</div>
-        </div>
+    <main>
+        <!-- Section Expériences -->
+        <section id="experiences" class="section-container">
+            <h2 class="section-title hidden">Mes Expériences</h2>
+            <div class="timeline">
+                
+                <article class="timeline-item hidden">
+                    <div class="timeline-content">
+                        <h3>Contrôleur de Coût & Serveur (Stage)</h3>
+                        <span class="company">Palm Beach, Cannes</span>
+                        <p>Une expérience formatrice alliant back-office et front-office. J'ai participé au suivi budgétaire, à l'élaboration de rapports financiers pour la direction, tout en assurant le service en salle chez <em>Il Grande</em> lors des fortes affluences.</p>
+                    </div>
+                </article>
 
-        <!-- Contenu : Expériences (La preuve par l'action) -->
-        <section id="experiences" class="content-section active-content">
-            <h2>L'épreuve du terrain</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <h3>Groupe Palm Beach (Cannes)</h3>
-                    <p><strong>Contrôleur de coût & Serveur "Il Grande"</strong></p>
-                    <p>Une double expérience au sein d'un établissement premium. D'un côté, l'analyse financière, l'élaboration de rapports et le suivi budgétaire budgétaire pour la direction[cite: 2]. De l'autre, le service en salle lors des fortes affluences chez Il Grande[cite: 2].</p>
-                    <p><em>👉 Ma valeur ajoutée : La capacité à comprendre les enjeux financiers (back-office) tout en assurant l'excellence de la relation client sous pression (front-office).</em></p>
+                <article class="timeline-item hidden">
+                    <div class="timeline-content">
+                        <h3>Animateur BAFA</h3>
+                        <span class="company">IFAC, Bouc-Bel-Air</span>
+                        <p>Planification d'activités, encadrement et sécurité de groupes de jeunes (certifications BAFA, PSC1, Surveillant baignade). Une excellente école pour développer mon sens des responsabilités et mon sang-froid face aux imprévus.</p>
+                    </div>
                 </article>
-                <article class="project-card">
-                    <h3>Manoeuvre sur Chantier</h3>
-                    <p><strong>STAM (Guillestre)</strong></p>
-                    <p>Préparation de chantier et manutention de matériaux dans des conditions physiques exigeantes[cite: 2]. Une véritable confrontation au monde du travail brut[cite: 1].</p>
-                    <p><em>👉 Ma valeur ajoutée : L'humilité, le respect du travail acharné et une persévérance à toute épreuve[cite: 1].</em></p>
+
+                <article class="timeline-item hidden">
+                    <div class="timeline-content">
+                        <h3>Manoeuvre sur Chantier</h3>
+                        <span class="company">STAM, Guillestre</span>
+                        <p>Préparation de chantier et assistance aux équipes de terrain. Un travail physique exigeant qui m'a inculqué la persévérance, l'humilité et le respect du travail acharné.</p>
+                    </div>
                 </article>
-                <article class="project-card">
-                    <h3>Animateur BAFA</h3>
-                    <p><strong>IFAC (Bouc-Bel-Air)</strong></p>
-                    <p>Encadrement, planification d'activités et gestion des imprévus et de la sécurité (PSC1, Surveillant baignade) pour des groupes de jeunes[cite: 2].</p>
-                    <p><em>👉 Ma valeur ajoutée : Mon leadership, ma prise de responsabilité et mon intelligence sociale[cite: 2].</em></p>
-                </article>
+
             </div>
         </section>
 
-        <!-- Contenu : Formation -->
-        <section id="formation" class="content-section">
-            <h2>Mon Parcours Académique</h2>
-            <ul class="skills-list">
-                <li>🎓 <strong>Programme ESDHEM 2 :</strong> Un double cursus intensif exigeant une organisation militaire (Licence d'Économie-Gestion à l'ULCO + Prépa SKEMA)[cite: 2].</li>
-                <li>🎯 <strong>Objectif PGE :</strong> Ambition d'intégrer le Programme Grande École via les concours AST pour viser un Master de haut niveau en management[cite: 1].</li>
-                <li>📚 <strong>Scolarité :</strong> Baccalauréat spécialités SES et HGGSP (Lycée du Sacré-Coeur)[cite: 2]. J'ai appris de mes échecs passés pour revenir avec une méthode de travail infaillible[cite: 1].</li>
-            </ul>
-        </section>
+        <!-- Section Formation & Atouts -->
+        <section id="parcours" class="section-container bg-light">
+            <h2 class="section-title hidden">Formation & Atouts</h2>
+            <div class="grid-2-cols">
+                
+                <div class="card hidden">
+                    <h3>🎓 Parcours Académique</h3>
+                    <ul class="clean-list">
+                        <li><strong>Programme ESDHEM 2 :</strong> Double cursus intensif (Licence d'Économie-Gestion à l'ULCO + Classe préparatoire SKEMA).</li>
+                        <li><strong>Objectif :</strong> Intégrer le Programme Grande École (PGE) via les concours AST.</li>
+                        <li><strong>Scolarité :</strong> Baccalauréat spécialités SES et HGGSP (Lycée du Sacré-Coeur).</li>
+                    </ul>
+                </div>
 
-        <!-- Contenu : Compétences -->
-        <section id="competences" class="content-section">
-            <h2>Mes Atouts Clés</h2>
-            <ul class="skills-list">
-                <li>🌍 <strong>Débrouillardise internationale :</strong> Anglais B1+ (TOEIC 730)[cite: 2]. Pour progresser, je n'ai pas attendu : je suis parti <strong>seul pendant 2 mois à Malte</strong> en immersion linguistique totale[cite: 2].</li>
-                <li>💼 <strong>Outils pro :</strong> Maîtrise du Pack Office (Excel, PowerPoint), Canva et LinkedIn[cite: 2].</li>
-                <li>🤝 <strong>Savoir-être :</strong> Fiabilité totale, sens de l'organisation et capacité à fédérer une équipe.</li>
-            </ul>
-        </section>
+                <div class="card hidden">
+                    <h3>🌍 Compétences & Profil</h3>
+                    <ul class="clean-list">
+                        <li><strong>Langues :</strong> Anglais B1+ (TOEIC 730). Immersion totale de 2 mois en solitaire à Malte pour perfectionner ma pratique.</li>
+                        <li><strong>Centres d'intérêt :</strong> Géopolitique, Histoire asiatique, Cinéma et Voyages (10 pays visités).</li>
+                        <li><strong>Sport :</strong> Football (10 ans de pratique, équipe universitaire), Padel et Musculation. L'esprit d'équipe et la discipline au quotidien.</li>
+                    </ul>
+                </div>
 
-        <!-- Contenu : Loisirs -->
-        <section id="loisirs" class="content-section">
-            <h2>Ce qui forge mon caractère</h2>
-            <ul class="skills-list">
-                <li>🏋️ <strong>La Musculation (+3 ans) :</strong> Plus qu'un sport, c'est mon école de la discipline[cite: 1, 2]. Elle m'apprend la constance, le dépassement de soi et le respect du processus à long terme[cite: 1].</li>
-                <li>⚽ <strong>Football (+5 ans) & Padel :</strong> Le sens du collectif, la communication dans l'action et le goût du challenge[cite: 1, 2].</li>
-                <li>🗺️ <strong>Géopolitique & Histoire Asiatique :</strong> Une volonté de comprendre les dynamiques complexes de notre monde, de m'ouvrir à d'autres cultures et d'analyser les relations internationales[cite: 1, 2].</li>
-                <li>✈️ <strong>Voyage :</strong> Déjà 10 pays visités, dont 2 en solitaire, pour cultiver mon ouverture d'esprit et ma débrouillardise[cite: 2].</li>
-            </ul>
+            </div>
         </section>
     </main>
 
-    <!-- Le ballon Easter Egg -->
-    <div class="animation-foot" id="easter-egg-btn" title="Clique-moi si tu oses !">⚽</div>
+    <footer class="footer">
+        <p>Thomas Bernardin - Portfolio étudiant</p>
+        <a href="mailto:thomas.bernardin@skema.edu" class="contact-btn">Me contacter</a>
+    </footer>
 
-    <!-- La fenêtre du mini-jeu (cachée par défaut) -->
-    <div id="modal-jeu" class="modal">
-        <div class="modal-content">
-            <span id="fermer-jeu" class="fermer">&times;</span>
-            <h2>Mini-Jeu : Jongles !</h2>
-            <p>Score : <span id="score-jeu">0</span></p>
-            <div id="zone-jeu">
-                <div id="ballon-jeu">⚽</div>
-            </div>
-            <p id="message-jeu">Clique sur le ballon pour le faire rebondir et l'empêcher de tomber !</p>
-        </div>
+    <!-- L'interface du mini-jeu cachée au départ -->
+    <div id="game-ui" style="display: none;">
+        <div id="score-board">Score: <span id="score">0</span></div>
+        <div id="game-message">Ne le laisse pas tomber !</div>
     </div>
+    
+    <!-- Le ballon (déclencheur du jeu) -->
+    <div id="ball">⚽</div>
 
     <script src="script.js"></script>
 </body>
