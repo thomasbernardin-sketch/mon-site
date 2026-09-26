@@ -1,110 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-color: #f8fafc;
+    --bg-alt: #f1f5f9;
+    --text-color: #334155;
+    --text-muted: #64748b;
+    --primary: #2563eb;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+}
+
+body.mode-sombre {
+    --bg-color: #0f172a;
+    --bg-alt: #1e293b;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #3b82f6;
+    --card-bg: #1e293b;
+    --border: #334155;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8fafc;
-    color: #1e293b;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    transition: all 0.4s;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
 }
 
-.header {
-    background: linear-gradient(135deg, #1e293b, #334155);
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-    position: relative;
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border);
 }
 
-.profile-container { max-width: 800px; margin: 0 auto; }
-
-.profile-img {
-    width: 150px; height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid white;
-    margin-bottom: 20px;
-}
-
-h1 { margin: 0; font-size: 2.2em; }
-.subtitle { font-weight: 600; color: #94a3b8; }
-.bio { line-height: 1.6; font-weight: 300; font-size: 0.95em; }
+.logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+.nav-links a { color: var(--text-color); text-decoration: none; margin: 0 15px; font-weight: 600; transition: 0.2s; }
+.nav-links a:hover { color: var(--primary); }
 
 #btn-sombre {
-    position: absolute; top: 20px; right: 20px;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white; border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px; cursor: pointer; transition: 0.3s;
+    background: none; border: 1px solid var(--border); padding: 8px 15px;
+    border-radius: 20px; color: var(--text-color); cursor: pointer;
+    font-weight: 600; margin-left: 20px; transition: 0.3s;
 }
+#btn-sombre:hover { background-color: var(--primary); color: white; border-color: var(--primary); }
 
-#btn-sombre:hover { background-color: white; color: #1e293b; }
+/* --- SECTIONS --- */
+.section-container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+.bg-light { background-color: var(--bg-alt); max-width: 100%; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; color: var(--text-color); }
+.section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 10px auto 0; border-radius: 2px;}
 
-.main-content { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-
-/* --- TABLEAU DE BORD --- */
-.dashboard-grid {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px;
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 150px 20px 80px;
+    background: linear-gradient(to bottom, var(--bg-alt), var(--bg-color));
 }
-
-.dash-card {
-    background-color: white; padding: 15px 25px;
-    border-radius: 10px; font-weight: 600;
-    cursor: pointer; transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border: 2px solid transparent;
+.hero-content {
+    max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 40px;
 }
-
-.dash-card:hover { border-color: #3b82f6; transform: translateY(-3px); }
-.dash-card.active { background-color: #3b82f6; color: white; }
-
-/* --- CONTENU CACHÉ --- */
-.content-section { display: none; animation: fadeIn 0.5s; }
-.content-section.active-content { display: block; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-h2 { border-bottom: 3px solid #3b82f6; display: inline-block; padding-bottom: 5px; }
-
-.skills-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px; }
-.skills-list li { background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 4px solid #3b82f6;}
-
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.project-card { background-color: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid #3b82f6; }
-.project-card h3 { margin-top: 0; color: #1e293b; }
-
-/* --- MODE SOMBRE --- */
-body.mode-sombre { background-color: #0f172a; color: #f8fafc; }
-body.mode-sombre .dash-card, body.mode-sombre .project-card, body.mode-sombre .skills-list li { background-color: #1e293b; color: #f8fafc; box-shadow: none; }
-body.mode-sombre .dash-card.active { background-color: #3b82f6; }
-body.mode-sombre .project-card h3 { color: white; }
-
-/* --- ANIMATION BALLON --- */
-.animation-foot {
-    font-size: 40px; position: fixed; bottom: 20px; right: 20px;
-    z-index: 1000; cursor: pointer;
-    animation: rebond 1.5s infinite ease-in-out;
+.profile-img {
+    width: 200px; height: 200px; object-fit: cover; border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 5px solid var(--card-bg);
 }
-.animation-foot:hover { transform: scale(1.2); }
-@keyframes rebond { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+.hero-text h1 { font-size: 3rem; margin: 0 0 10px 0; }
+.hero-text .subtitle { font-size: 1.2rem; color: var(--primary); margin: 0 0 20px 0; }
+.hero-text .bio { line-height: 1.8; color: var(--text-muted); font-size: 1.05rem; }
 
-/* --- MODAL MINI JEU --- */
-.modal {
-    display: none; position: fixed; z-index: 2000; left: 0; top: 0;
-    width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);
-    justify-content: center; align-items: center;
+/* --- TIMELINE (Expériences) --- */
+.timeline { border-left: 3px solid var(--primary); padding-left: 30px; margin-left: 20px; }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-item::before {
+    content: ''; position: absolute; left: -39px; top: 5px;
+    width: 15px; height: 15px; background: var(--primary);
+    border-radius: 50%; border: 4px solid var(--bg-color);
 }
-.modal-content {
-    background-color: #f8fafc; padding: 30px; border-radius: 15px;
-    text-align: center; width: 300px; color: #1e293b; position: relative;
+.timeline-content h3 { margin: 0 0 5px 0; font-size: 1.3rem; }
+.company { font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 10px; }
+.timeline-content p { line-height: 1.6; color: var(--text-muted); }
+
+/* --- GRILLES & CARTES --- */
+.grid-2-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+.card { background-color: var(--card-bg); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+.card h3 { color: var(--primary); margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;}
+.clean-list { list-style: none; padding: 0; margin: 0; }
+.clean-list li { margin-bottom: 15px; line-height: 1.6; color: var(--text-muted); padding-left: 20px; position: relative; }
+.clean-list li::before { content: '▹'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+/* --- FOOTER --- */
+.footer { text-align: center; padding: 60px 20px; background-color: var(--card-bg); border-top: 1px solid var(--border); }
+.contact-btn { display: inline-block; padding: 12px 30px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; margin-top: 20px; transition: 0.3s; }
+.contact-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2); }
+
+/* --- ANIMATIONS AU DÉFILEMENT --- */
+.hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+.show { opacity: 1; transform: translateY(0); }
+
+/* --- MINI-JEU JONGLE --- */
+#ball {
+    position: fixed; bottom: 30px; right: 30px; font-size: 45px;
+    z-index: 2000; cursor: pointer; user-select: none;
+    transition: transform 0.2s;
 }
-.fermer { position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; }
-#zone-jeu {
-    width: 100%; height: 300px; background-color: #e2e8f0; border-radius: 10px;
-    position: relative; overflow: hidden; margin: 20px 0; border: 2px solid #94a3b8;
-}
-#ballon-jeu {
-    font-size: 40px; position: absolute; left: 50%; transform: translateX(-50%);
-    top: 20px; cursor: pointer; user-select: none;
+#ball:hover { transform: scale(1.1); }
+#game-ui { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); z-index: 2000; text-align: center; pointer-events: none; }
+#score-board { font-size: 2rem; font-weight: bold; color: var(--primary); text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+#game-message { font-size: 1.2rem; font-weight: 600; margin-top: 5px; color: var(--text-color); }
+
+@media (max-width: 768px) {
+    .hero-content { flex-direction: column; text-align: center; }
+    .nav-links { display: none; }
+    .profile-img { width: 150px; height: 150px; }
 }
