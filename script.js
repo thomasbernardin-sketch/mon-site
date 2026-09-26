@@ -25,9 +25,9 @@ const bounceLoss = 0.9;
 const ballSize = 60; 
 let resetTimeout;
 
-// 'pointerdown' est plus fiable que 'click' ou 'mousedown'
+// 'pointerdown' est plus fiable pour la souris et le tactile
 ball.addEventListener('pointerdown', (e) => {
-    e.preventDefault(); // Bloque les comportements bizarres du navigateur
+    e.preventDefault(); 
 
     if (isPlaying) {
         // --- JONGLAGE ---
@@ -53,7 +53,7 @@ ball.addEventListener('pointerdown', (e) => {
         
         clearTimeout(resetTimeout);
 
-        // On détache le ballon pour le contrôler
+        // On détache le ballon de son coin
         posX = window.innerWidth - 100;
         posY = window.innerHeight - 100;
         ball.style.bottom = 'auto';
@@ -63,7 +63,6 @@ ball.addEventListener('pointerdown', (e) => {
         velY = -16;
         velX = -8; 
 
-        // On s'assure qu'il n'y a pas d'autre animation en cours
         cancelAnimationFrame(gameLoop);
         updatePhysics();
     }
@@ -79,7 +78,7 @@ function updatePhysics() {
     const maxX = window.innerWidth - ballSize;
     const maxY = window.innerHeight - ballSize;
 
-    // Rebonds sur les murs
+    // Rebonds sur les murs latéraux
     if (posX <= 0) {
         posX = 0;
         velX = Math.abs(velX) * bounceLoss;
@@ -94,7 +93,7 @@ function updatePhysics() {
         velY = Math.abs(velY) * bounceLoss;
     }
 
-    // GAME OVER : S'il touche le bas de l'écran
+    // GAME OVER : S'il touche le sol
     if (posY >= maxY) {
         posY = maxY;
         endGame();
