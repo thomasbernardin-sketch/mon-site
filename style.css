@@ -52,19 +52,19 @@ body.mode-sombre .navbar { background-color: rgba(15, 23, 42, 0.9); }
 }
 #btn-sombre:hover { background-color: var(--primary); color: white; }
 
-/* --- HERO SECTION (Aérée et asymétrique) --- */
+/* --- HERO SECTION (Aérée et centrée) --- */
 .hero-section {
     padding: 180px 20px 100px;
     display: flex; justify-content: center;
 }
 .hero-container {
-    max-width: 1000px;
-    display: flex; flex-direction: row; align-items: center; gap: 60px;
-    text-align: left; /* Alignement à gauche très pro */
+    max-width: 900px;
+    display: flex; flex-direction: column; align-items: center; gap: 30px;
+    text-align: center;
 }
 .profile-img {
-    width: 220px; height: 220px; object-fit: cover; border-radius: 50%;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1); flex-shrink: 0;
+    width: 200px; height: 200px; object-fit: cover; border-radius: 50%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 .hero-text h1 { font-size: 3.5rem; margin: 0 0 5px 0; font-weight: 700; line-height: 1.2; }
 .subtitle { font-size: 1.3rem; color: var(--primary); font-weight: 500; margin-bottom: 25px; margin-top: 0; }
@@ -82,7 +82,7 @@ body.mode-sombre .navbar { background-color: rgba(15, 23, 42, 0.9); }
 }
 .experience-card {
     background-color: var(--card-bg); padding: 40px;
-    border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Ombre plus subtile */
+    border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     border: 1px solid var(--border); transition: transform 0.3s;
 }
 .experience-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -133,7 +133,6 @@ body.mode-sombre #game-ui { background: rgba(15, 23, 42, 0.9); }
 
 /* Responsive (Téléphone) */
 @media (max-width: 768px) {
-    .hero-container { flex-direction: column; text-align: center; gap: 30px; }
     .split-layout { grid-template-columns: 1fr; }
     .card-header { flex-direction: column; align-items: flex-start; gap: 10px; }
     .nav-links { display: none; }
