@@ -3,24 +3,13 @@ const btnSombre = document.getElementById('btn-sombre');
 btnSombre.addEventListener('click', () => {
     document.body.classList.toggle('mode-sombre');
     if(document.body.classList.contains('mode-sombre')) {
-        btnSombre.innerHTML = '☀️ Mode Clair';
+        btnSombre.innerHTML = 'Mode Clair';
     } else {
-        btnSombre.innerHTML = '🌙 Mode Sombre';
+        btnSombre.innerHTML = 'Mode Sombre';
     }
 });
 
-// --- ANIMATIONS D'APPARITION AU SCROLL ---
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
-}, { threshold: 0.1 }); // Se déclenche quand 10% de l'élément est visible
-
-document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
-
-// --- LE VRAI JEU DE JONGLE (MOTEUR PHYSIQUE) ---
+// --- LE VRAI JEU DE JONGLE (MOTEUR PHYSIQUE RÉPARÉ) ---
 const ball = document.getElementById('ball');
 const gameUi = document.getElementById('game-ui');
 const scoreDisplay = document.getElementById('score');
@@ -34,9 +23,9 @@ let score = 0;
 let posX, posY;
 let velX = 0;
 let velY = 0;
-const gravity = 0.5;
-const bounceLoss = 0.7; // Perte d'énergie sur les murs
-const ballSize = 45;
+const gravity = 0.6;
+const bounceLoss = 0.8; 
+const ballSize = 60; // Taille du ballon
 
 function startGame(e) {
     if (isPlaying) {
@@ -45,18 +34,18 @@ function startGame(e) {
         scoreDisplay.textContent = score;
         
         // Impulsion vers le haut
-        velY = -12;
+        velY = -15;
         
-        // Déviation aléatoire sur les côtés selon où on clique
+        // Déviation à gauche ou à droite selon où on clique
         const clickOffset = (e.clientX - posX - (ballSize/2)) / ballSize;
-        velX = -clickOffset * 15; 
+        velX = -clickOffset * 20; 
         
-        // Fait tourner le ballon
+        // Fait tourner le ballon visuellement
         ball.style.transform = `rotate(${Math.random() * 360}deg)`;
         return;
     }
 
-    // Premier clic : Lancement du jeu
+    // --- PREMIER CLIC : LANCEMENT DU JEU ---
     isPlaying = true;
     score = 0;
     scoreDisplay.textContent = score;
@@ -64,18 +53,18 @@ function startGame(e) {
     gameMessage.textContent = "Clique pour jongler !";
     gameMessage.style.color = "var(--text-color)";
 
-    // Position initiale (là où est le ballon)
+    // On détache le ballon de sa position CSS initiale (en bas à droite)
+    // Pour le passer entièrement sous le contrôle du Javascript
     const rect = ball.getBoundingClientRect();
     posX = rect.left;
     posY = rect.top;
-
-    // Première impulsion
-    velY = -15;
-    velX = (Math.random() - 0.5) * 10;
-
-    // On détache le ballon de son CSS de base pour le contrôler en JS
-    ball.style.right = 'auto';
+    
     ball.style.bottom = 'auto';
+    ball.style.right = 'auto';
+
+    // Première impulsion vers le haut et la gauche
+    velY = -15;
+    velX = -5;
 
     gameLoop = requestAnimationFrame(updatePhysics);
 }
@@ -83,14 +72,15 @@ function startGame(e) {
 function updatePhysics() {
     if (!isPlaying) return;
 
-    velY += gravity; // Applique la gravité
+    velY += gravity; // La gravité tire le ballon vers le bas
     posX += velX;
     posY += velY;
 
+    // Limites de l'écran
     const maxX = window.innerWidth - ballSize;
     const maxY = window.innerHeight - ballSize;
 
-    // Rebond sur les murs gauche/droite
+    // Rebond sur les murs (gauche et droite)
     if (posX < 0) {
         posX = 0;
         velX = Math.abs(velX) * bounceLoss;
@@ -99,13 +89,19 @@ function updatePhysics() {
         velX = -Math.abs(velX) * bounceLoss;
     }
 
-    // Game Over si ça touche le sol
+    // Rebond au plafond (pour ne pas qu'il disparaisse en haut)
+    if (posY < 0) {
+        posY = 0;
+        velY = Math.abs(velY) * bounceLoss;
+    }
+
+    // Si le ballon touche le sol = Game Over
     if (posY >= maxY) {
         posY = maxY;
         endGame();
     }
 
-    // Applique les positions
+    // Mise à jour de la position du ballon à l'écran
     ball.style.left = posX + 'px';
     ball.style.top = posY + 'px';
 
@@ -119,6 +115,11 @@ function endGame() {
     cancelAnimationFrame(gameLoop);
     gameMessage.textContent = "Dommage ! Score : " + score + " (Clique pour rejouer)";
     gameMessage.style.color = "red";
+    
+    // On remet les valeurs à zéro pour pouvoir recommencer proprement
+    velX = 0;
+    velY = 0;
 }
 
+// Détection du clic sur le ballon
 ball.addEventListener('click', startGame);
