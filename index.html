@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Menu épuré -->
     <nav class="navbar">
         <div class="logo">TB.</div>
         <div class="nav-links">
@@ -18,27 +17,27 @@
         </div>
     </nav>
 
-    <!-- Section Accueil : Centrée et majestueuse -->
+    <!-- Accueil : Format Slide (Image à gauche, texte à droite) -->
     <header id="accueil" class="hero-section">
         <div class="hero-container">
             <img src="IMG_3738.jpeg" alt="Thomas Bernardin" class="profile-img">
-            <h1>Thomas Bernardin</h1>
-            <h2 class="subtitle">Étudiant en Double Cursus (SKEMA / ULCO)</h2>
-            <p class="bio">
-                Curieux et engagé, je construis mon parcours en combinant l'exigence académique avec des expériences concrètes. 
-                J'ai eu l'opportunité de développer ma rigueur lors d'un stage financier au Palm Beach, mais aussi mon sens de l'effort 
-                en travaillant sur des chantiers ou en encadrant des jeunes. Passionné par la géopolitique, l'histoire et le sport, 
-                j'aime le travail d'équipe et relever de nouveaux défis.
-            </p>
+            <div class="hero-text">
+                <h1>Thomas Bernardin</h1>
+                <h2 class="subtitle">Étudiant en Double Cursus (SKEMA / ULCO)</h2>
+                <p class="bio">
+                    Curieux et engagé, je construis mon parcours en combinant l'exigence académique avec des expériences concrètes. 
+                    J'ai eu l'opportunité de développer ma rigueur lors d'un stage financier au Palm Beach, mais aussi mon sens de l'effort 
+                    en travaillant sur des chantiers ou en encadrant des jeunes. Passionné par la géopolitique, l'histoire et le sport, 
+                    j'aime le travail d'équipe et relever de nouveaux défis.
+                </p>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Section Expériences : Des cartes larges et lisibles -->
         <section id="experiences" class="section-container bg-light">
             <h2 class="section-title">Mes Expériences</h2>
             <div class="cards-layout">
-                
                 <article class="experience-card">
                     <div class="card-header">
                         <h3>Contrôleur de Coût & Serveur (Stage)</h3>
@@ -62,15 +61,12 @@
                     </div>
                     <p>Préparation de chantier et assistance aux équipes de terrain. Un travail physique exigeant qui m'a inculqué la persévérance, l'humilité et le respect du travail acharné.</p>
                 </article>
-
             </div>
         </section>
 
-        <!-- Section Parcours : Grille propre et symétrique -->
         <section id="parcours" class="section-container">
             <h2 class="section-title">Formation & Atouts</h2>
             <div class="split-layout">
-                
                 <div class="info-block">
                     <div class="block-icon">🎓</div>
                     <h3>Parcours Académique</h3>
@@ -86,7 +82,6 @@
                     <p><strong>Centres d'intérêt :</strong> Géopolitique, Histoire asiatique, Cinéma et Voyages (10 pays visités).</p>
                     <p><strong>Sport :</strong> Football (10 ans, équipe universitaire), Padel et Musculation. L'esprit d'équipe et la discipline au quotidien.</p>
                 </div>
-
             </div>
         </section>
     </main>
@@ -96,15 +91,14 @@
         <a href="mailto:thomas.bernardin@skema.edu" class="contact-btn">Me contacter par email</a>
     </footer>
 
-    <!-- L'interface du mini-jeu cachée au départ -->
+    <!-- L'interface du mini-jeu -->
     <div id="game-ui">
         <div id="score-board">Score: <span id="score">0</span></div>
         <div id="game-message">Jongle sans le faire tomber !</div>
     </div>
     
-    <!-- Le ballon -->
     <div id="ball">⚽</div>
 
     <script src="script.js"></script>
 </body>
-</html>v
+</html>
