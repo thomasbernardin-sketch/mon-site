@@ -3,56 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Thomas Bernardin</title>
+    <title>Thomas Bernardin | Profil & Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header class="header">
         <button id="btn-sombre">Mode sombre</button>
         <div class="profile-container">
             <img src="IMG_3738.jpeg" alt="Portrait de Thomas Bernardin" class="profile-img">
             <div>
                 <h1>Thomas Bernardin</h1>
-                <p class="subtitle">Étudiant en ESDHEM 2 Économie-Gestion (SKEMA Business School - Campus de Lille / ULCO)</p>
-                <p class="bio">Étudiant en double cursus dynamique et engagé. Habitué à l'effort physique et au travail collectif, que ce soit sur les terrains de football universitaires ou lors de mes expériences professionnelles (chantiers, animation), j'allie rigueur, sens des responsabilités et fort esprit d'équipe pour mener à bien mes projets.</p>
+                <p class="subtitle">L'exigence académique (SKEMA / ULCO), l'intelligence du terrain.</p>
+                <p class="bio">Mon parcours n'est pas une ligne droite, c'est une ascension bâtie sur l'adaptabilité[cite: 1]. De la rudesse d'un chantier de construction aux standards d'excellence du groupe Palm Beach, j'ai forgé un mental qui refuse la facilité[cite: 1, 2]. Qu'il s'agisse de partir seul deux mois à Malte pour m'immerger en anglais ou de gérer la pression d'un service premium, je m'engage à 100%[cite: 2]. Ma force ? Allier la rigueur d'un étudiant en double cursus à la force de travail d'un sportif de compétition.</p>
             </div>
         </div>
     </header>
 
     <main class="main-content">
-        <section class="skills-section">
-            <h2>Mes Compétences</h2>
-            <ul class="skills-list">
-                <li>Organisation & Gestion du temps</li>
-                <li>Leadership & Prise d'initiative</li>
-                <li>Encadrement & Sécurité (BAFA, Surveillant de baignade)</li>
-                <li>Travail en équipe & Adaptabilité</li>
-            </ul>
-        </section>
+        <!-- Grille du tableau de bord interactif (Simple et ergonomique) -->
+        <div class="dashboard-grid">
+            <div class="dash-card active" data-target="experiences">Expériences</div>
+            <div class="dash-card" data-target="formation">Formation</div>
+            <div class="dash-card" data-target="competences">Compétences & Atouts</div>
+            <div class="dash-card" data-target="loisirs">Loisirs & Personnalité</div>
+        </div>
 
-        <section class="projects-section">
-            <h2>Mes Projets & Expériences</h2>
+        <!-- Contenu : Expériences (La preuve par l'action) -->
+        <section id="experiences" class="content-section active-content">
+            <h2>L'épreuve du terrain</h2>
             <div class="projects-grid">
                 <article class="project-card">
-                    <h3>Animation en centre de loisirs</h3>
-                    <p>Encadrement de groupes de jeunes, organisation d'activités et garantie de la sécurité des participants, demandant un fort sens de la planification et du leadership.</p>
+                    <h3>Groupe Palm Beach (Cannes)</h3>
+                    <p><strong>Contrôleur de coût & Serveur "Il Grande"</strong></p>
+                    <p>Une double expérience au sein d'un établissement premium. D'un côté, l'analyse financière, l'élaboration de rapports et le suivi budgétaire budgétaire pour la direction[cite: 2]. De l'autre, le service en salle lors des fortes affluences chez Il Grande[cite: 2].</p>
+                    <p><em>👉 Ma valeur ajoutée : La capacité à comprendre les enjeux financiers (back-office) tout en assurant l'excellence de la relation client sous pression (front-office).</em></p>
                 </article>
                 <article class="project-card">
-                    <h3>Expérience sur chantiers de construction</h3>
-                    <p>Travail concret sur le terrain démontrant une forte capacité d'adaptation, une grande rigueur organisationnelle et la collaboration dans des environnements exigeants.</p>
+                    <h3>Manoeuvre sur Chantier</h3>
+                    <p><strong>STAM (Guillestre)</strong></p>
+                    <p>Préparation de chantier et manutention de matériaux dans des conditions physiques exigeantes[cite: 2]. Une véritable confrontation au monde du travail brut[cite: 1].</p>
+                    <p><em>👉 Ma valeur ajoutée : L'humilité, le respect du travail acharné et une persévérance à toute épreuve[cite: 1].</em></p>
+                </article>
+                <article class="project-card">
+                    <h3>Animateur BAFA</h3>
+                    <p><strong>IFAC (Bouc-Bel-Air)</strong></p>
+                    <p>Encadrement, planification d'activités et gestion des imprévus et de la sécurité (PSC1, Surveillant baignade) pour des groupes de jeunes[cite: 2].</p>
+                    <p><em>👉 Ma valeur ajoutée : Mon leadership, ma prise de responsabilité et mon intelligence sociale[cite: 2].</em></p>
                 </article>
             </div>
         </section>
+
+        <!-- Contenu : Formation -->
+        <section id="formation" class="content-section">
+            <h2>Mon Parcours Académique</h2>
+            <ul class="skills-list">
+                <li>🎓 <strong>Programme ESDHEM 2 :</strong> Un double cursus intensif exigeant une organisation militaire (Licence d'Économie-Gestion à l'ULCO + Prépa SKEMA)[cite: 2].</li>
+                <li>🎯 <strong>Objectif PGE :</strong> Ambition d'intégrer le Programme Grande École via les concours AST pour viser un Master de haut niveau en management[cite: 1].</li>
+                <li>📚 <strong>Scolarité :</strong> Baccalauréat spécialités SES et HGGSP (Lycée du Sacré-Coeur)[cite: 2]. J'ai appris de mes échecs passés pour revenir avec une méthode de travail infaillible[cite: 1].</li>
+            </ul>
+        </section>
+
+        <!-- Contenu : Compétences -->
+        <section id="competences" class="content-section">
+            <h2>Mes Atouts Clés</h2>
+            <ul class="skills-list">
+                <li>🌍 <strong>Débrouillardise internationale :</strong> Anglais B1+ (TOEIC 730)[cite: 2]. Pour progresser, je n'ai pas attendu : je suis parti <strong>seul pendant 2 mois à Malte</strong> en immersion linguistique totale[cite: 2].</li>
+                <li>💼 <strong>Outils pro :</strong> Maîtrise du Pack Office (Excel, PowerPoint), Canva et LinkedIn[cite: 2].</li>
+                <li>🤝 <strong>Savoir-être :</strong> Fiabilité totale, sens de l'organisation et capacité à fédérer une équipe.</li>
+            </ul>
+        </section>
+
+        <!-- Contenu : Loisirs -->
+        <section id="loisirs" class="content-section">
+            <h2>Ce qui forge mon caractère</h2>
+            <ul class="skills-list">
+                <li>🏋️ <strong>La Musculation (+3 ans) :</strong> Plus qu'un sport, c'est mon école de la discipline[cite: 1, 2]. Elle m'apprend la constance, le dépassement de soi et le respect du processus à long terme[cite: 1].</li>
+                <li>⚽ <strong>Football (+5 ans) & Padel :</strong> Le sens du collectif, la communication dans l'action et le goût du challenge[cite: 1, 2].</li>
+                <li>🗺️ <strong>Géopolitique & Histoire Asiatique :</strong> Une volonté de comprendre les dynamiques complexes de notre monde, de m'ouvrir à d'autres cultures et d'analyser les relations internationales[cite: 1, 2].</li>
+                <li>✈️ <strong>Voyage :</strong> Déjà 10 pays visités, dont 2 en solitaire, pour cultiver mon ouverture d'esprit et ma débrouillardise[cite: 2].</li>
+            </ul>
+        </section>
     </main>
 
-    <footer class="footer">
-        <h2>Me contacter</h2>
-        <p>Intéressé par mon profil ? N'hésitez pas à m'envoyer un email.</p>
-        <a href="mailto:contact@exemple.com" class="contact-btn">Envoyer un email</a>
-    </footer>
+    <!-- Le ballon Easter Egg -->
+    <div class="animation-foot" id="easter-egg-btn" title="Clique-moi si tu oses !">⚽</div>
 
-    <div class="animation-foot">⚽</div>
+    <!-- La fenêtre du mini-jeu (cachée par défaut) -->
+    <div id="modal-jeu" class="modal">
+        <div class="modal-content">
+            <span id="fermer-jeu" class="fermer">&times;</span>
+            <h2>Mini-Jeu : Jongles !</h2>
+            <p>Score : <span id="score-jeu">0</span></p>
+            <div id="zone-jeu">
+                <div id="ballon-jeu">⚽</div>
+            </div>
+            <p id="message-jeu">Clique sur le ballon pour le faire rebondir et l'empêcher de tomber !</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
