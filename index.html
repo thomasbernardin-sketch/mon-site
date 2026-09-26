@@ -7,88 +7,84 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation fixée en haut -->
+    <!-- Menu épuré -->
     <nav class="navbar">
         <div class="logo">TB.</div>
         <div class="nav-links">
             <a href="#accueil">Accueil</a>
-            <a href="#parcours">Parcours</a>
             <a href="#experiences">Expériences</a>
-            <button id="btn-sombre">🌙 Mode Sombre</button>
+            <a href="#parcours">Parcours</a>
+            <button id="btn-sombre">Mode Sombre</button>
         </div>
     </nav>
 
-    <!-- Section Accueil -->
-    <header id="accueil" class="hero-section hidden">
-        <div class="hero-content">
+    <!-- Section Accueil : Centrée et majestueuse -->
+    <header id="accueil" class="hero-section">
+        <div class="hero-container">
             <img src="IMG_3738.jpeg" alt="Thomas Bernardin" class="profile-img">
-            <div class="hero-text">
-                <h1>Thomas Bernardin</h1>
-                <h2 class="subtitle">Étudiant en Double Cursus (SKEMA / ULCO)</h2>
-                <p class="bio">
-                    Curieux et engagé, je construis mon parcours en combinant l'exigence académique avec des expériences concrètes. 
-                    J'ai eu l'opportunité de développer ma rigueur lors d'un stage financier au Palm Beach, mais aussi mon sens de l'effort 
-                    en travaillant sur des chantiers ou en encadrant des jeunes. Passionné par la géopolitique, l'histoire et le sport, 
-                    j'aime le travail d'équipe et relever de nouveaux défis.
-                </p>
-            </div>
+            <h1>Thomas Bernardin</h1>
+            <h2 class="subtitle">Étudiant en Double Cursus (SKEMA / ULCO)</h2>
+            <p class="bio">
+                Curieux et engagé, je construis mon parcours en combinant l'exigence académique avec des expériences concrètes. 
+                J'ai eu l'opportunité de développer ma rigueur lors d'un stage financier au Palm Beach, mais aussi mon sens de l'effort 
+                en travaillant sur des chantiers ou en encadrant des jeunes. Passionné par la géopolitique, l'histoire et le sport, 
+                j'aime le travail d'équipe et relever de nouveaux défis.
+            </p>
         </div>
     </header>
 
     <main>
-        <!-- Section Expériences -->
-        <section id="experiences" class="section-container">
-            <h2 class="section-title hidden">Mes Expériences</h2>
-            <div class="timeline">
+        <!-- Section Expériences : Des cartes larges et lisibles -->
+        <section id="experiences" class="section-container bg-light">
+            <h2 class="section-title">Mes Expériences</h2>
+            <div class="cards-layout">
                 
-                <article class="timeline-item hidden">
-                    <div class="timeline-content">
+                <article class="experience-card">
+                    <div class="card-header">
                         <h3>Contrôleur de Coût & Serveur (Stage)</h3>
                         <span class="company">Palm Beach, Cannes</span>
-                        <p>Une expérience formatrice alliant back-office et front-office. J'ai participé au suivi budgétaire, à l'élaboration de rapports financiers pour la direction, tout en assurant le service en salle chez <em>Il Grande</em> lors des fortes affluences.</p>
                     </div>
+                    <p>Une expérience formatrice alliant back-office et front-office. J'ai participé au suivi budgétaire, à l'élaboration de rapports financiers pour la direction, tout en assurant le service en salle chez <em>Il Grande</em> lors des fortes affluences.</p>
                 </article>
 
-                <article class="timeline-item hidden">
-                    <div class="timeline-content">
+                <article class="experience-card">
+                    <div class="card-header">
                         <h3>Animateur BAFA</h3>
                         <span class="company">IFAC, Bouc-Bel-Air</span>
-                        <p>Planification d'activités, encadrement et sécurité de groupes de jeunes (certifications BAFA, PSC1, Surveillant baignade). Une excellente école pour développer mon sens des responsabilités et mon sang-froid face aux imprévus.</p>
                     </div>
+                    <p>Planification d'activités, encadrement et sécurité de groupes de jeunes (certifications BAFA, PSC1, Surveillant baignade). Une excellente école pour développer mon sens des responsabilités et mon sang-froid face aux imprévus.</p>
                 </article>
 
-                <article class="timeline-item hidden">
-                    <div class="timeline-content">
+                <article class="experience-card">
+                    <div class="card-header">
                         <h3>Manoeuvre sur Chantier</h3>
                         <span class="company">STAM, Guillestre</span>
-                        <p>Préparation de chantier et assistance aux équipes de terrain. Un travail physique exigeant qui m'a inculqué la persévérance, l'humilité et le respect du travail acharné.</p>
                     </div>
+                    <p>Préparation de chantier et assistance aux équipes de terrain. Un travail physique exigeant qui m'a inculqué la persévérance, l'humilité et le respect du travail acharné.</p>
                 </article>
 
             </div>
         </section>
 
-        <!-- Section Formation & Atouts -->
-        <section id="parcours" class="section-container bg-light">
-            <h2 class="section-title hidden">Formation & Atouts</h2>
-            <div class="grid-2-cols">
+        <!-- Section Parcours : Grille propre et symétrique -->
+        <section id="parcours" class="section-container">
+            <h2 class="section-title">Formation & Atouts</h2>
+            <div class="split-layout">
                 
-                <div class="card hidden">
-                    <h3>🎓 Parcours Académique</h3>
-                    <ul class="clean-list">
-                        <li><strong>Programme ESDHEM 2 :</strong> Double cursus intensif (Licence d'Économie-Gestion à l'ULCO + Classe préparatoire SKEMA).</li>
-                        <li><strong>Objectif :</strong> Intégrer le Programme Grande École (PGE) via les concours AST.</li>
-                        <li><strong>Scolarité :</strong> Baccalauréat spécialités SES et HGGSP (Lycée du Sacré-Coeur).</li>
-                    </ul>
+                <div class="info-block">
+                    <div class="block-icon">🎓</div>
+                    <h3>Parcours Académique</h3>
+                    <p><strong>Programme ESDHEM 2 :</strong> Double cursus intensif (Licence d'Économie-Gestion à l'ULCO + Classe préparatoire SKEMA).</p>
+                    <p><strong>Objectif :</strong> Intégrer le Programme Grande École (PGE) via les concours AST.</p>
+                    <p><strong>Scolarité :</strong> Baccalauréat spécialités SES et HGGSP (Lycée du Sacré-Coeur).</p>
                 </div>
 
-                <div class="card hidden">
-                    <h3>🌍 Compétences & Profil</h3>
-                    <ul class="clean-list">
-                        <li><strong>Langues :</strong> Anglais B1+ (TOEIC 730). Immersion totale de 2 mois en solitaire à Malte pour perfectionner ma pratique.</li>
-                        <li><strong>Centres d'intérêt :</strong> Géopolitique, Histoire asiatique, Cinéma et Voyages (10 pays visités).</li>
-                        <li><strong>Sport :</strong> Football (10 ans de pratique, équipe universitaire), Padel et Musculation. L'esprit d'équipe et la discipline au quotidien.</li>
-                    </ul>
+                <div class="info-block">
+                    <div class="block-icon">🌍</div>
+                    <h3>Compétences & Profil</h3>
+                    <p><strong>Langues :</strong> Anglais B1+ (TOEIC 730). Immersion totale de 2 mois en solitaire à Malte pour perfectionner ma pratique.</p>
+                    <p><strong>Centres d'intérêt :</strong> Géopolitique, Histoire asiatique, Cinéma et Voyages (10 pays visités).</p>
+                    <p><strong>Sport :</strong> Football (10 ans, équipe universitaire), Padel et Musculation. L'esprit d'équipe et la discipline au quotidien.</p>
                 </div>
 
             </div>
@@ -96,17 +92,17 @@
     </main>
 
     <footer class="footer">
-        <p>Thomas Bernardin - Portfolio étudiant</p>
-        <a href="mailto:thomas.bernardin@skema.edu" class="contact-btn">Me contacter</a>
+        <h2>Intéressé par mon profil ?</h2>
+        <a href="mailto:thomas.bernardin@skema.edu" class="contact-btn">Me contacter par email</a>
     </footer>
 
     <!-- L'interface du mini-jeu cachée au départ -->
-    <div id="game-ui" style="display: none;">
+    <div id="game-ui">
         <div id="score-board">Score: <span id="score">0</span></div>
-        <div id="game-message">Ne le laisse pas tomber !</div>
+        <div id="game-message">Jongle sans le faire tomber !</div>
     </div>
     
-    <!-- Le ballon (déclencheur du jeu) -->
+    <!-- Le ballon -->
     <div id="ball">⚽</div>
 
     <script src="script.js"></script>
