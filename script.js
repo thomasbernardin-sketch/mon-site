@@ -9,7 +9,7 @@ btnSombre.addEventListener('click', () => {
     }
 });
 
-// --- LE VRAI JEU DE JONGLE (MOUVEMENTS CORRIGÉS) ---
+// --- LE VRAI JEU DE JONGLE (VERSION BLINDÉE) ---
 const ball = document.getElementById('ball');
 const gameUi = document.getElementById('game-ui');
 const scoreDisplay = document.getElementById('score');
@@ -20,51 +20,54 @@ let gameLoop;
 let score = 0;
 let posX, posY;
 let velX = 0, velY = 0;
-const gravity = 0.6;
-const bounceLoss = 0.8; 
+const gravity = 0.8;
+const bounceLoss = 0.9; 
 const ballSize = 60; 
 let resetTimeout;
 
-function startGame(e) {
-    e.preventDefault();
+// 'pointerdown' est plus fiable que 'click' ou 'mousedown'
+ball.addEventListener('pointerdown', (e) => {
+    e.preventDefault(); // Bloque les comportements bizarres du navigateur
 
     if (isPlaying) {
-        // En cours de jeu : On jongle
+        // --- JONGLAGE ---
         score++;
         scoreDisplay.textContent = score;
-        velY = -15; // Rebond vers le haut
         
-        // CORRECTION : On génère une direction aléatoire (gauche ou droite)
-        // à chaque frappe pour rendre le mouvement naturel et imprévisible.
-        velX = (Math.random() - 0.5) * 25; 
+        // Rebond vers le haut
+        velY = -16; 
         
+        // Direction aléatoire gauche/droite
+        velX = (Math.random() - 0.5) * 20; 
+        
+        // Fait tourner le ballon visuellement
         ball.style.transform = `rotate(${Math.random() * 360}deg)`;
-        return;
+    } else {
+        // --- DÉMARRAGE ---
+        isPlaying = true;
+        score = 0;
+        scoreDisplay.textContent = score;
+        gameUi.style.display = 'block';
+        gameMessage.textContent = "Continue de jongler !";
+        gameMessage.style.color = "var(--text-color)";
+        
+        clearTimeout(resetTimeout);
+
+        // On détache le ballon pour le contrôler
+        posX = window.innerWidth - 100;
+        posY = window.innerHeight - 100;
+        ball.style.bottom = 'auto';
+        ball.style.right = 'auto';
+
+        // Premier saut
+        velY = -16;
+        velX = -8; 
+
+        // On s'assure qu'il n'y a pas d'autre animation en cours
+        cancelAnimationFrame(gameLoop);
+        updatePhysics();
     }
-
-    // Lancement d'une nouvelle partie
-    isPlaying = true;
-    score = 0;
-    scoreDisplay.textContent = score;
-    gameUi.style.display = 'block';
-    gameMessage.textContent = "Clique pour jongler !";
-    gameMessage.style.color = "var(--text-color)";
-
-    clearTimeout(resetTimeout);
-
-    // Départ en bas à droite
-    posX = window.innerWidth - 90;
-    posY = window.innerHeight - 90;
-    
-    ball.style.bottom = 'auto';
-    ball.style.right = 'auto';
-
-    velY = -15; 
-    // On le lance vers le milieu de l'écran pour commencer
-    velX = -8;  
-
-    gameLoop = requestAnimationFrame(updatePhysics);
-}
+});
 
 function updatePhysics() {
     if (!isPlaying) return;
@@ -76,41 +79,39 @@ function updatePhysics() {
     const maxX = window.innerWidth - ballSize;
     const maxY = window.innerHeight - ballSize;
 
-    // Rebond sur les Murs latéraux
-    if (posX < 0) {
+    // Rebonds sur les murs
+    if (posX <= 0) {
         posX = 0;
         velX = Math.abs(velX) * bounceLoss;
-    } else if (posX > maxX) {
+    } else if (posX >= maxX) {
         posX = maxX;
         velX = -Math.abs(velX) * bounceLoss;
     }
 
-    // Rebond sur le Plafond
-    if (posY < 0) {
+    // Rebond au plafond
+    if (posY <= 0) {
         posY = 0;
         velY = Math.abs(velY) * bounceLoss;
     }
 
-    // Game Over : Touche le sol
+    // GAME OVER : S'il touche le bas de l'écran
     if (posY >= maxY) {
         posY = maxY;
         endGame();
-    }
-
-    ball.style.left = posX + 'px';
-    ball.style.top = posY + 'px';
-
-    if (isPlaying) {
+    } else {
+        // Applique la nouvelle position
+        ball.style.left = posX + 'px';
+        ball.style.top = posY + 'px';
         gameLoop = requestAnimationFrame(updatePhysics);
     }
 }
 
 function endGame() {
     isPlaying = false;
-    cancelAnimationFrame(gameLoop);
-    gameMessage.textContent = "Dommage ! Score final : " + score;
+    gameMessage.textContent = "Dommage ! Score : " + score;
     gameMessage.style.color = "red";
     
+    // Réinitialisation après 2 secondes
     resetTimeout = setTimeout(() => {
         gameUi.style.display = 'none'; 
         
@@ -119,11 +120,5 @@ function endGame() {
         ball.style.bottom = '30px';
         ball.style.right = '30px';
         ball.style.transform = 'rotate(0deg)';
-        
-        velX = 0;
-        velY = 0;
     }, 2000);
 }
-
-ball.addEventListener('mousedown', startGame);
-ball.addEventListener('touchstart', startGame, { passive: false });
